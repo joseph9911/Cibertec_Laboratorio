@@ -19,14 +19,9 @@
                     </button>
                     @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
-                <nav class="navbar-collapse collapse">
-                    @*
-                        @Html.ActionLink("Home", "Index", "Home")
-                        @Html.ActionLink("About", "About", "Home")
-                        @Html.ActionLink("Contact", "Contact", "Home")
-                    *@
+                <nav class="navbar-collapse collapse">                    
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Opción 1</a></li>
+                        <li>@Html.ActionLink("Person", "Index", "Person")</li>
                         <li><a href="#">Opción 2</a></li>
                         <li><a href="#">Opción 3</a></li>
                     </ul>
