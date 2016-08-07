@@ -1,12 +1,11 @@
 ﻿@model WebDeveloper.Model.Person
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Details";
 }
 
-<h2>Delete</h2>
+<h2>Details</h2>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Person</h4>
     <hr />
@@ -108,15 +107,8 @@
         </dd>
 
     </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()        
-        
-        @Html.HiddenFor(model => model.BusinessEntityID)
-        
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
 </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BusinessEntityID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -13,7 +13,17 @@ namespace WebDeveloper.Repository
         {
             using (var db = new WebContextDb())
             {
-                return db.Persons.FirstOrDefault(p=> p.PersonId==id);
+                return db.Person.FirstOrDefault(p=> p.BusinessEntityID==id);
+            }
+        }
+
+        public List<Person> GetListBySize(int size)
+        {
+            using (var db = new WebContextDb())
+            {
+                return db.Person
+                    .OrderByDescending(p => p.ModifiedDate)
+                    .Take(size).ToList();
             }
         }
     }
