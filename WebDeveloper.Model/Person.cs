@@ -19,8 +19,8 @@ namespace WebDeveloper.Model
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int BusinessEntityID { get; set; }
 
-        [Required]
-        [StringLength(2)]
+        [Required(ErrorMessage ="This field is required.")]
+        [StringLength(2, ErrorMessage ="This field required 2 characters.")]
         [Display(Name ="Type")]
         public string PersonType { get; set; }
 
@@ -29,23 +29,24 @@ namespace WebDeveloper.Model
         [StringLength(8)]
         public string Title { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [Required(ErrorMessage = "This First Name is required.")]
+        [StringLength(50, ErrorMessage = "Max 50 characters.")]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "Max 50 characters.")]
         [Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        [Display(Name = "First Name")]
+        [Required(ErrorMessage = "This Last Name is required.")]
+        [StringLength(50, ErrorMessage = "Max 50 characters.")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [StringLength(10)]
         public string Suffix { get; set; }
 
+        [Required(ErrorMessage = "Email Promotion is required.")]
         public int EmailPromotion { get; set; }
 
         [Column(TypeName = "xml")]

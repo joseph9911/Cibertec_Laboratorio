@@ -51,11 +51,12 @@ namespace WebDeveloper.Repository
             modelBuilder.Entity<BusinessEntity>()
                 .HasMany(e => e.BusinessEntityContact)
                 .WithRequired(e => e.BusinessEntity)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<BusinessEntity>()
                 .HasOptional(e => e.Person)
-                .WithRequired(e => e.BusinessEntity);
+                .WithRequired(e => e.BusinessEntity)
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<ContactType>()
                 .HasMany(e => e.BusinessEntityContact)
@@ -97,7 +98,7 @@ namespace WebDeveloper.Repository
             modelBuilder.Entity<Person>()
                 .HasMany(e => e.PersonPhone)
                 .WithRequired(e => e.Person)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<PhoneNumberType>()
                 .HasMany(e => e.PersonPhone)

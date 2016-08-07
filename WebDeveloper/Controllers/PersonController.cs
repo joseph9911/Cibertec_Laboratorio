@@ -62,7 +62,7 @@ namespace WebDeveloper.Controllers
         [HttpPost]
         public ActionResult Delete(Person person)
         {
-            person = _person.GetById(person.BusinessEntityID);
+            person = _person.GetCompletePersonById(person.BusinessEntityID);
             _person.Delete(person);
             return RedirectToAction("Index");
         }

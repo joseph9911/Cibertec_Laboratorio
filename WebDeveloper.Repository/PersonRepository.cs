@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebDeveloper.Model;
+using System.Data.Entity;
 
 namespace WebDeveloper.Repository
 {
@@ -24,6 +25,16 @@ namespace WebDeveloper.Repository
                 return db.Person
                     .OrderByDescending(p => p.ModifiedDate)
                     .Take(size).ToList();
+            }
+        }
+
+        public Person GetCompletePersonById(int id)
+        {
+            using (var db = new WebContextDb())
+            {
+                return db.Person
+                    .Include(p=> p.BusinessEntity)
+                    .FirstOrDefault(p => p.BusinessEntityID == id);
             }
         }
     }
