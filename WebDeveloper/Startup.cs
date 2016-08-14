@@ -9,6 +9,7 @@ namespace WebDeveloper
         public void Configuration(IAppBuilder app)
         {
             //ConfigureAuth(app);
+            log4net.Config.XmlConfigurator.Configure();
         }
     }
 }
