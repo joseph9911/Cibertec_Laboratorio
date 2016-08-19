@@ -8,9 +8,8 @@ using WebDeveloper.Model;
 using WebDeveloper.Repository;
 
 namespace WebDeveloper.Areas.Personnel.Controllers
-{
-    [AuditControl]
-    public class PersonController : Controller
+{    
+    public class PersonController : PersonBaseController
     {
         // GET: Person
         private PersonRepository _person = new PersonRepository();        
