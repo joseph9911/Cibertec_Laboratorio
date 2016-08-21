@@ -171,7 +171,19 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Personnel\Controllers\AddressController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\AddressTypeController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\BusinessEntityAddressController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\BusinessEntityContactController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\BusinessEntityController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\ContactTypeController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\CountryRegionController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\EmailAddressController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\PasswordController.cs" />
     <Compile Include="Areas\Personnel\Controllers\PersonBaseController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\PersonPhoneController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\PhoneNumberTypeController.cs" />
+    <Compile Include="Areas\Personnel\Controllers\StateProvinceController.cs" />
     <Compile Include="Areas\Personnel\PersonnelAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -247,8 +259,20 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Personnel\Models\" />
+    <Folder Include="Areas\Personnel\Views\AddressType\" />
+    <Folder Include="Areas\Personnel\Views\Address\" />
+    <Folder Include="Areas\Personnel\Views\BusinessEntityAddress\" />
+    <Folder Include="Areas\Personnel\Views\BusinessEntityContact\" />
+    <Folder Include="Areas\Personnel\Views\BusinessEntity\" />
+    <Folder Include="Areas\Personnel\Views\ContactType\" />
+    <Folder Include="Areas\Personnel\Views\CountryRegion\" />
+    <Folder Include="Areas\Personnel\Views\EmailAddress\" />
+    <Folder Include="Areas\Personnel\Views\Password\" />
     <Folder Include="Areas\Personnel\Views\PersonBase\" />
+    <Folder Include="Areas\Personnel\Views\PersonPhone\" />
+    <Folder Include="Areas\Personnel\Views\PhoneNumberType\" />
     <Folder Include="Areas\Personnel\Views\Shared\" />
+    <Folder Include="Areas\Personnel\Views\StateProvince\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
