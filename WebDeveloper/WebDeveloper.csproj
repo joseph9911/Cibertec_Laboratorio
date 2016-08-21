@@ -215,6 +215,11 @@
     <Content Include="App_Code\CustomHelper.cshtml" />
     <Content Include="Areas\Personnel\Views\web.config" />
     <Content Include="Areas\Personnel\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Personnel\Views\Address\Index.cshtml" />
+    <Content Include="Areas\Personnel\Views\Address\Create.cshtml" />
+    <Content Include="Areas\Personnel\Views\Address\Delete.cshtml" />
+    <Content Include="Areas\Personnel\Views\Address\Details.cshtml" />
+    <Content Include="Areas\Personnel\Views\Address\Edit.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -260,7 +265,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Personnel\Models\" />
     <Folder Include="Areas\Personnel\Views\AddressType\" />
-    <Folder Include="Areas\Personnel\Views\Address\" />
     <Folder Include="Areas\Personnel\Views\BusinessEntityAddress\" />
     <Folder Include="Areas\Personnel\Views\BusinessEntityContact\" />
     <Folder Include="Areas\Personnel\Views\BusinessEntity\" />
