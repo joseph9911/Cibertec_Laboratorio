@@ -257,9 +257,9 @@
     <Content Include="Areas\Personnel\Views\Person\Edit.cshtml" />
     <Content Include="Areas\Personnel\Views\Person\Delete.cshtml" />
     <Content Include="Areas\Personnel\Views\Person\Details.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -272,7 +272,6 @@
     <Folder Include="Areas\Personnel\Views\CountryRegion\" />
     <Folder Include="Areas\Personnel\Views\EmailAddress\" />
     <Folder Include="Areas\Personnel\Views\Password\" />
-    <Folder Include="Areas\Personnel\Views\PersonBase\" />
     <Folder Include="Areas\Personnel\Views\PersonPhone\" />
     <Folder Include="Areas\Personnel\Views\PhoneNumberType\" />
     <Folder Include="Areas\Personnel\Views\Shared\" />

@@ -3,8 +3,8 @@ using WebDeveloper.Filters;
 using WebDeveloper.Repository;
 
 namespace WebDeveloper.Areas.Personnel.Controllers
-{
-    [Authorize]
+{   
+    [Authorize] 
     [ExceptionControl]
     public class PersonBaseController<T> : Controller where T: class 
     {
