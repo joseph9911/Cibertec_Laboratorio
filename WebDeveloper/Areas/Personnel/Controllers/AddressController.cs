@@ -10,11 +10,6 @@ namespace WebDeveloper.Areas.Personnel.Controllers
 {
     public class AddressController : PersonBaseController<Address>
     {
-        public AddressController()
-        {
-            _repository = new BaseRepository<Address>();
-        }
-        // GET: Personnel/Address
         public ActionResult Index()
         {
             return View(_repository.PaginatedList((x=>x.ModifiedDate),1,15));
