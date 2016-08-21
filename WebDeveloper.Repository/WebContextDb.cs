@@ -11,8 +11,11 @@ namespace WebDeveloper.Repository
 {
     public class WebContextDb : DbContext
     {
-        public WebContextDb(): base("WebDeveloperConnectionString")
+        public WebContextDb(): base("WebDeveloper")
         {
+            Database.SetInitializer<WebContextDb>(null);
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
         }
 
         public virtual DbSet<Address> Address { get; set; }
