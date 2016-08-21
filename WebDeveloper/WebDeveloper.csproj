@@ -169,6 +169,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Personnel\Controllers\PersonBase1Controller.cs" />
     <Compile Include="Areas\Personnel\PersonnelAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Personnel\Controllers\PersonController.cs" />
@@ -239,6 +240,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Personnel\Models\" />
+    <Folder Include="Areas\Personnel\Views\PersonBase1\" />
     <Folder Include="Areas\Personnel\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
