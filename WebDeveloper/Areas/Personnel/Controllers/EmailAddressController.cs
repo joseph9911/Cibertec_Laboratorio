@@ -14,5 +14,13 @@ namespace WebDeveloper.Areas.Personnel.Controllers
         {
             return View();
         }
+
+        public ActionResult EmailByPerson(int id)
+        {
+            return PartialView("_Email",
+                _repository.ListById(x=> x.BusinessEntityID==id)
+                );
+
+        }
     }
 }

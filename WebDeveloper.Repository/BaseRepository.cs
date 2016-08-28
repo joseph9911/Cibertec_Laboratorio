@@ -50,5 +50,10 @@ namespace WebDeveloper.Repository
             db.Entry(entity).State = EntityState.Modified;
             return db.SaveChanges();
         }
+
+        public IEnumerable<T> ListById(Expression<Func<T, bool>> match)
+        {
+            return db.Set<T>().Where(match);
+        }
     }
 }

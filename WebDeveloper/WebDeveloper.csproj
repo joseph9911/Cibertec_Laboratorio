@@ -17,11 +17,11 @@
     <AssemblyName>WebDeveloper</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44318</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -220,6 +220,7 @@
     <Content Include="Areas\Personnel\Views\Address\Delete.cshtml" />
     <Content Include="Areas\Personnel\Views\Address\Details.cshtml" />
     <Content Include="Areas\Personnel\Views\Address\Edit.cshtml" />
+    <Content Include="Areas\Personnel\Views\EmailAddress\_Email.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -228,6 +229,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -270,7 +273,6 @@
     <Folder Include="Areas\Personnel\Views\BusinessEntity\" />
     <Folder Include="Areas\Personnel\Views\ContactType\" />
     <Folder Include="Areas\Personnel\Views\CountryRegion\" />
-    <Folder Include="Areas\Personnel\Views\EmailAddress\" />
     <Folder Include="Areas\Personnel\Views\Password\" />
     <Folder Include="Areas\Personnel\Views\PersonPhone\" />
     <Folder Include="Areas\Personnel\Views\PhoneNumberType\" />
