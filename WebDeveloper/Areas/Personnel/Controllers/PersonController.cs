@@ -58,6 +58,11 @@ namespace WebDeveloper.Areas.Personnel.Controllers
         {
             var person = _person.GetById(id);
             if (person == null) return RedirectToAction("Index");
+            //Example:
+            //Customer customer = new Customer () { Id = id };
+            //context.Customers.Attach(customer);
+            //context.Customers.DeleteObject(customer);
+            //context.SaveChanges();
             return View(person);
         }
 
