@@ -58,11 +58,11 @@ namespace WebDeveloper
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "980790865959-p56d1kcjnnmm1jdttbd8688hdbtqp93c.apps.googleusercontent.com",
+                ClientSecret = "aFCU3BXWpGv16umWiRsGvBNF"
+            });
         }
     }
 }
