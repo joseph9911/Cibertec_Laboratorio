@@ -43,6 +43,7 @@ namespace WebDeveloper.Areas.Personnel.Controllers
         public ActionResult Edit(Person person)
         {
             if (!ModelState.IsValid) return PartialView("_Edit", person);
+            person.ModifiedDate = DateTime.Now;
             _repository.Update(person);
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }

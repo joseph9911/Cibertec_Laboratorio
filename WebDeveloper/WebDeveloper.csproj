@@ -221,6 +221,7 @@
     <Content Include="Areas\Personnel\Views\Address\Details.cshtml" />
     <Content Include="Areas\Personnel\Views\Address\Edit.cshtml" />
     <Content Include="Areas\Personnel\Views\EmailAddress\_Email.cshtml" />
+    <Content Include="Areas\Personnel\Views\Person\_List.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

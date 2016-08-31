@@ -1,4 +1,4 @@
-﻿@helper GetModal()
+﻿@helper GetModal(string title)
 {
     <div class="modal fade" id="modal-container"
          tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -9,7 +9,8 @@
                             data-dismiss="modal"
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>                    
+                    </button>
+                    <h4 class="modal-title">@title</h4>
                 </div>
                 <div class="modal-body">
                 </div>
@@ -18,22 +19,19 @@
     </div>
 }
 
-@helper SuccessMessage(string message)
+@helper Message(string id, string action, string type, string message)
 {
-    <div id="successMessage" class="hidden">
-        <div class="alert alert-success">
+    <div id="@id" class="hidden">
+        <div class="alert alert-@type">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Success!</strong> @message
+            <strong>@action!</strong> @message
         </div>
     </div>
 }
 
-@helper DeleteMessage()
+@helper AlertMessages()
 {
-    <div id="deleteMessage" class="hidden">
-        <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Deleted!</strong> The record was deleted.
-        </div>
-    </div>
+    @CustomHelper.Message("successMessage", "Created", "success", "The record was created succesfully.")
+    @CustomHelper.Message("deleteMessage", "Deleted", "danger", "The record was created succesfully.")
+    @CustomHelper.Message("editMessage", "Edited", "success", "The record was edited properly.")
 }

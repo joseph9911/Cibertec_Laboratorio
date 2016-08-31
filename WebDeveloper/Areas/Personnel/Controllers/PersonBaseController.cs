@@ -6,6 +6,7 @@ namespace WebDeveloper.Areas.Personnel.Controllers
 {   
     [Authorize] 
     [ExceptionControl]
+    [OutputCache(Duration =0)]
     public class PersonBaseController<T> : Controller where T: class 
     {
         protected IRepository<T>  _repository;
