@@ -48,7 +48,7 @@ namespace WebDeveloper.Model
 
         [Required(ErrorMessage = "Email Promotion is required.")]
         public int EmailPromotion { get; set; }
-
+        
         [Column(TypeName = "xml")]
         public string AdditionalContactInfo { get; set; }
 

@@ -6,9 +6,14 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@CustomHelper.SuccessMessage("The record was created succesfully.")
+@CustomHelper.DeleteMessage()
+
+<div>
+    <a href="#" onclick="getModalContent('@Url.Action("Create",new { area="Personnel" })'); return false;" data-toggle="modal" data-target="#modal-container" class="btn btn-success btn-sm">
+        <span class="glyphicon glyphicon-plus"></span> Create New
+    </a>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -29,7 +34,9 @@
         <th>
             @Html.DisplayNameFor(model => model.ModifiedDate)
         </th>
-        <th></th>
+        <th>
+            Actions
+        </th>
     </tr>   
 
 @foreach (var item in Model) {
@@ -53,21 +60,18 @@
             @Html.DisplayFor(modelItem => item.ModifiedDate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", 
-           new { id=item.BusinessEntityID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BusinessEntityID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BusinessEntityID }) |
-            @Ajax.ActionLink("Emails", "EmailByPerson",
-             new { area="Personnel", controller="EmailAddress",
-                 id = item.BusinessEntityID },
-             new AjaxOptions()
-             {
-                 HttpMethod="GET",
-                 AllowCache=false,
-                 InsertionMode= InsertionMode.Replace,
-                 UpdateTargetId= "emailContent"
-             })
-
+            <a href="#" onclick="getModalContent('@Url.Action("Edit",new { area="Personnel", id=item.BusinessEntityID})'); return false;" data-toggle="modal" data-target="#modal-container" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-edit"></span> Edit
+            </a>
+            <a href="#" onclick="getModalContent('@Url.Action("Details",new { area="Personnel", id=item.BusinessEntityID})'); return false;" data-toggle="modal" data-target="#modal-container" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-info-sign"></span> Details
+            </a>
+            <a href="#" onclick="getModalContent('@Url.Action("Delete",new { area="Personnel", id=item.BusinessEntityID})'); return false;" data-toggle="modal" data-target="#modal-container" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-remove"></span> Delete
+            </a>            
+            <a href="#" onclick="getModalContent('@Url.Action("EmailByPerson",new { area="Personnel", controller="EmailAddress", id=item.BusinessEntityID })'); return false;" data-toggle="modal" data-target="#modal-container" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-calendar"></span> Emails
+            </a>
         </td>
     </tr>
 }
@@ -78,3 +82,5 @@
 </div>
 
 @Scripts.Render("~/bundles/unobtrusive-ajax")
+@CustomHelper.GetModal()
+<script src="~/Scripts/Shared/Modal.js" type="text/javascript"></script>

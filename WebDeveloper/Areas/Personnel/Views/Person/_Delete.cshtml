@@ -109,14 +109,21 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Ajax.BeginForm("Delete", new { Controller = "Person", Area = "Personnel" },
+                                            new AjaxOptions
+                                            {
+                                                HttpMethod = "Post",
+                                                InsertionMode = InsertionMode.Replace,
+                                                UpdateTargetId = "modal-body",
+                                                OnSuccess = "closeModal('delete')"
+                                            }))
+    {
         @Html.AntiForgeryToken()        
         
         @Html.HiddenFor(model => model.BusinessEntityID)
         
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-default" />             
         </div>
     }
 </div>

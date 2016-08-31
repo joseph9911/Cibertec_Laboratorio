@@ -9,11 +9,31 @@
                             data-dismiss="modal"
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>
+                    </button>                    
                 </div>
                 <div class="modal-body">
                 </div>
             </div>
+        </div>
+    </div>
+}
+
+@helper SuccessMessage(string message)
+{
+    <div id="successMessage" class="hidden">
+        <div class="alert alert-success">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> @message
+        </div>
+    </div>
+}
+
+@helper DeleteMessage()
+{
+    <div id="deleteMessage" class="hidden">
+        <div class="alert alert-danger">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Deleted!</strong> The record was deleted.
         </div>
     </div>
 }

@@ -238,6 +238,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Shared\Modal.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -256,13 +257,14 @@
     <Content Include="scss\base\_site.scss" />
     <Content Include="scss\helpers\_colors.scss" />
     <Content Include="Areas\Personnel\Views\Person\Index.cshtml" />
-    <Content Include="Areas\Personnel\Views\Person\Create.cshtml" />
-    <Content Include="Areas\Personnel\Views\Person\Edit.cshtml" />
-    <Content Include="Areas\Personnel\Views\Person\Delete.cshtml" />
-    <Content Include="Areas\Personnel\Views\Person\Details.cshtml" />
+    <Content Include="Areas\Personnel\Views\Person\_Create.cshtml" />
+    <Content Include="Areas\Personnel\Views\Person\_Edit.cshtml" />
+    <Content Include="Areas\Personnel\Views\Person\_Delete.cshtml" />
+    <Content Include="Areas\Personnel\Views\Person\_Details.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="scss\bootstrap\_modal.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

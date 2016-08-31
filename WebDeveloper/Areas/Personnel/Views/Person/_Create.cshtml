@@ -6,7 +6,14 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Ajax.BeginForm("Create", new { Controller = "Person", Area = "Personnel" },
+                                    new AjaxOptions
+                                    {
+                                        HttpMethod = "Post",
+                                        InsertionMode = InsertionMode.Replace,
+                                        UpdateTargetId = "modal-body",
+                                        OnSuccess = "closeModal('create')"
+                                    }))
 {
     @Html.AntiForgeryToken()
     
@@ -103,10 +110,5 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+@Scripts.Render("~/bundles/jqueryval")

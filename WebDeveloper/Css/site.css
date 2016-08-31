@@ -12,3 +12,6 @@ footer {
   right: 0;
   text-align: center; }
 
+.modal-header {
+  border-bottom: 0 solid #e5e5e5; }
+
