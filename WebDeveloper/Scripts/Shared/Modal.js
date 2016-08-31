@@ -2,7 +2,7 @@
     $("button[data-dismiss='modal']").click();
     $('.modal-body').html('');
     modifyModalClasses(option);
-    location.reload();
+    reloadPage();
 }
 
 function getModalContent(url) {

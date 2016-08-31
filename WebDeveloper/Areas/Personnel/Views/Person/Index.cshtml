@@ -1,6 +1,4 @@
-﻿
-
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
@@ -12,16 +10,23 @@
         <span class="glyphicon glyphicon-plus"></span> Create New
     </a>
 </div>
-<pagination total-items="100"            
-            max-size="10"
-            boundary-links="true"
-            rotate="false"
-            num-pages="100"
-            @*ng-change="changePageTo(reviews.pageNo)"*@
-            ></pagination>
-<div>    
-    @Html.Partial("_List")
+
+<div class="row">
+    @CustomHelper.RowSizeDropdown()
+    <div class="col-lg-8" id="paginator-container">
+        <div class="paginator"></div>
+    </div>
 </div>
+<div id="personContent"></div>
 @Scripts.Render("~/bundles/unobtrusive-ajax")
 @CustomHelper.GetModal("Person")
-<script src="~/Scripts/Shared/Modal.js" type="text/javascript"></script>
+
+
+@Scripts.Render("~/bundles/modal")
+@Scripts.Render("~/bundles/pagination")
+@Scripts.Render("~/bundles/person")
+
+<script type="text/javascript">    
+    var pageSizeAction = '@Url.Action("PageSize", new { controller = "Person", area = "Personnel" })';
+    var listAction = '@Url.Action("List", new { controller = "Person", area = "Personnel" })';
+</script>

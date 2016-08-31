@@ -12,6 +12,16 @@ namespace WebDeveloper.Areas.Personnel.Controllers
             return View(_repository.PaginatedList((x=>x.ModifiedDate), 1, 15));
         }
 
+        public ActionResult List(int? page, int? size)
+        {
+            if (!page.HasValue || !size.HasValue)
+            {
+                page = 1;
+                size = 10;
+            }
+            return PartialView("_List", _repository.PaginatedList((x=> x.ModifiedDate),page.Value, size.Value));
+        }
+
         public ActionResult Create()
         {
             return PartialView("_Create");
@@ -43,7 +53,7 @@ namespace WebDeveloper.Areas.Personnel.Controllers
         public ActionResult Edit(Person person)
         {
             if (!ModelState.IsValid) return PartialView("_Edit", person);
-            person.ModifiedDate = DateTime.Now;
+            //person.ModifiedDate = DateTime.Now;
             _repository.Update(person);
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
@@ -68,6 +78,12 @@ namespace WebDeveloper.Areas.Personnel.Controllers
             var person = _repository.GetById(x => x.BusinessEntityID == id);
             if (person == null) return RedirectToAction("Index");
             return PartialView("_Details", person);
+        }
+
+        public int PageSize(int pageSize)
+        {
+            var totalRecords=_repository.GetList().Count;          
+            return totalRecords % pageSize > 0 ? (totalRecords / pageSize) + 1 : totalRecords / pageSize;
         }
     }
 }

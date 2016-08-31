@@ -31,7 +31,20 @@
 
 @helper AlertMessages()
 {
-    @CustomHelper.Message("successMessage", "Created", "success", "The record was created succesfully.")
-    @CustomHelper.Message("deleteMessage", "Deleted", "danger", "The record was created succesfully.")
-    @CustomHelper.Message("editMessage", "Edited", "success", "The record was edited properly.")
+    @Message("successMessage", "Created", "success", "The record was created succesfully.")
+    @Message("deleteMessage", "Deleted", "danger", "The record was created succesfully.")
+    @Message("editMessage", "Edited", "success", "The record was edited properly.")
+}
+
+@helper RowSizeDropdown(){
+    <div class="col-lg-4 page-size">
+        <div class="form-group">
+            <select class="form-control col-lg-1" id="rowsByPage" onclick="changeSize();">
+                <option disabled="" selected="selected">-- Rows by Page --</option>
+                <option>15</option>
+                <option>30</option>
+                <option>50</option>
+            </select>
+        </div>
+    </div>
 }
