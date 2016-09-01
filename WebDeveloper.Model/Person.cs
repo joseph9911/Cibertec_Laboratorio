@@ -57,6 +57,8 @@ namespace WebDeveloper.Model
 
         public Guid rowguid { get; set; }
 
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime ModifiedDate { get; set; }
 
         public virtual BusinessEntity BusinessEntity { get; set; }
