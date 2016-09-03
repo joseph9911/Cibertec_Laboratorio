@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using WebDeveloper.Areas.Personnel.Models;
 using WebDeveloper.Model;
-using WebDeveloper.Models;
+
 
 namespace WebDeveloper.Areas.Personnel.Controllers
 {

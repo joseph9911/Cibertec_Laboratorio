@@ -31,6 +31,7 @@ namespace WebDeveloper.Repository
         public virtual DbSet<PersonPhone> PersonPhone { get; set; }
         public virtual DbSet<PhoneNumberType> PhoneNumberType { get; set; }
         public virtual DbSet<StateProvince> StateProvince { get; set; }
+        public virtual DbSet<Picture> Picture { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

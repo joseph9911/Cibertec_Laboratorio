@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using WebDeveloper.Model;
 
-namespace WebDeveloper.Models
+namespace WebDeveloper.Areas.Personnel.Models
 {
     public class PersonViewModel
     {
