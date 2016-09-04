@@ -1,0 +1,83 @@
+﻿@model IEnumerable<WebDeveloper.Model.Person>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                <a href="#"
+                   onclick="getModalContent('@Url.Action("Edit", new { area="Personnel", id=item.BusinessEntityID })')"
+                   data-toggle="modal"
+                   data-target="#modal-container"
+                   class="btn btn-success">
+                    <span class="glyphicon glyphicon-edit"></span> Edit
+                </a>
+
+                <a href="#"
+                   onclick="getModalContent('@Url.Action("Details", new { area="Personnel", id=item.BusinessEntityID })')"
+                   data-toggle="modal"
+                   data-target="#modal-container"
+                   class="btn btn-success">
+                    <span class="glyphicon glyphicon-info-sign"></span> Details
+                </a>
+
+                <a href="#"
+                   onclick="getModalContent('@Url.Action("EmailByPerson", new { area="Personnel", controller="EmailAddress", id=item.BusinessEntityID })')"
+                   data-toggle="modal"
+                   data-target="#modal-container"
+                   class="btn btn-success">
+                    <span class="glyphicon glyphicon-calendar"></span> Emails
+                </a>
+
+                <a href="#"
+                   onclick="getModalContent('@Url.Action("Delete", new { area="Personnel", id=item.BusinessEntityID })')"
+                   data-toggle="modal"
+                   data-target="#modal-container"
+                   class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove"></span> Delete
+                </a>
+
+            </td>
+        </tr>
+    }
+</table>

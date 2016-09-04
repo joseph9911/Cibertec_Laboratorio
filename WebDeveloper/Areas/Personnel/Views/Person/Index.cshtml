@@ -6,75 +6,39 @@
 
 <h2>Index</h2>
 
+@CustomHelper.Message("successMessage","success","The record was created.")
+@CustomHelper.Message("editMessage","info","The record was updated.")
+@CustomHelper.Message("deleteMessage","danger","The record was deleted.")
+
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="#"
+       onclick="getModalContent('@Url.Action("Create", new { area="Personnel" })')"
+       data-toggle="modal"
+       data-target="#modal-container"
+       class="btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span> Create New
+    </a>
+
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PersonType)
-        </th>        
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MiddleName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>        
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </th>
-        <th></th>
-    </tr>   
+<div id="personContent"></div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PersonType)
-        </td>        
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MiddleName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>        
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", 
-           new { id=item.BusinessEntityID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BusinessEntityID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BusinessEntityID }) |
-            @Ajax.ActionLink("Emails", "EmailByPerson",
-             new { area="Personnel", controller="EmailAddress",
-                 id = item.BusinessEntityID },
-             new AjaxOptions()
-             {
-                 HttpMethod="GET",
-                 AllowCache=false,
-                 InsertionMode= InsertionMode.Replace,
-                 UpdateTargetId= "emailContent"
-             })
 
-        </td>
-    </tr>
-}
-</table>
-
-<div class="row">
-    <div id="emailContent" class="col-lg-12"></div>
-</div>
-
+@CustomHelper.GetModal("Person")
+<script src="~/Scripts/Shared/modal.js" type="text/javascript"></script>
 @Scripts.Render("~/bundles/unobtrusive-ajax")
+
+<script type="text/javascript">
+    var rowsByPage = 15;
+    $(function () {
+        goToPage(1);
+    });
+
+    function goToPage(page) {
+        var url = '@Url.Action("List", new { controller="Person", area="Personnel" })';
+        var finalUrl = url + "?page=" + page + "&size=" + rowsByPage;
+        $.get(finalUrl, function (data) {
+            $('#personContent').html(data);
+        });
+    }
+</script>
