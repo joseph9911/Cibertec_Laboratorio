@@ -96,6 +96,7 @@ namespace WebDeveloper.Areas.Personnel.Controllers
 
         public int PageSize(int pageSize)
         {
+            if (pageSize <= 0) return 0;
             var totalRecords = _repository.GetList().Count;
             return totalRecords % pageSize > 0 ? (totalRecords / pageSize) + 1 : totalRecords / pageSize;
         }

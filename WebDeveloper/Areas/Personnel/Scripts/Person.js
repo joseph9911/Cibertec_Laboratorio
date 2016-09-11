@@ -54,10 +54,3 @@ function calculateNumberOfPages(rowsByPage) {
 function reloadPage() {
     goToPage(currentPage);
 }
-
-function printDropDown() {
-    var url = 'http://localhost/WebDeveloper/Personnel/Person/persontype';
-    $.get(url, function (data) {
-        console.log(data);
-    });
-}
