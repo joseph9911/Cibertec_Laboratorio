@@ -47,8 +47,8 @@ function calculateNumberOfPages(rowsByPage) {
     $.get(url, function (data) {
         pageSize = data;
         setPaginator();
-    });
-    goToPage(1);
+        goToPage(1);
+    });    
 }
 
 function reloadPage() {
