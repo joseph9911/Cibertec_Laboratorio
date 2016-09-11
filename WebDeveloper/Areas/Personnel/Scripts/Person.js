@@ -47,17 +47,10 @@ function calculateNumberOfPages(rowsByPage) {
     $.get(url, function (data) {
         pageSize = data;
         setPaginator();
-    });
-    goToPage(1);
+        goToPage(1);
+    });    
 }
 
 function reloadPage() {
     goToPage(currentPage);
-}
-
-function printDropDown() {
-    var url = 'http://localhost/WebDeveloper/Personnel/Person/persontype';
-    $.get(url, function (data) {
-        console.log(data);
-    });
 }
