@@ -21,7 +21,7 @@ namespace WebDeveloper.Areas.Personnel.Controllers
             if (!page.HasValue || !size.HasValue)
             {
                 page = 1;
-                size = 10;
+                size = 15;
             }
             return PartialView("_List", _repository.PaginatedList((x => x.ModifiedDate), page.Value, size.Value));
         }
