@@ -10,6 +10,12 @@
 @CustomHelper.Message("editMessage","info","The record was updated.")
 @CustomHelper.Message("deleteMessage","danger","The record was deleted.")
 
+<div class="row">
+    @CustomHelper.RowSizeDropdown()
+    <div class="col-lg-8" id="paginator-container">
+        <div class="paginator"></div>
+    </div>
+</div>
 
 <p>
     <a href="#"
@@ -23,22 +29,13 @@
 </p>
 <div id="personContent"></div>
 
+<input type="hidden" 
+       id="baseUrl" 
+       value="@Url.Action("", new { controller="Person", area="Personnel" })" />
 
 @CustomHelper.GetModal("Person")
-<script src="~/Scripts/Shared/modal.js" type="text/javascript"></script>
 @Scripts.Render("~/bundles/unobtrusive-ajax")
+@Scripts.Render("~/bundles/modal")
+@Scripts.Render("~/bundles/paginator")
+@Scripts.Render("~/bundles/person")
 
-<script type="text/javascript">
-    var rowsByPage = 15;
-    $(function () {
-        goToPage(1);
-    });
-
-    function goToPage(page) {
-        var url = '@Url.Action("List", new { controller="Person", area="Personnel" })';
-        var finalUrl = url + "?page=" + page + "&size=" + rowsByPage;
-        $.get(finalUrl, function (data) {
-            $('#personContent').html(data);
-        });
-    }
-</script>

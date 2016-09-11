@@ -14,14 +14,21 @@ namespace WebDeveloper.Areas.Personnel.Controllers
 
         public ActionResult List(int? page, int? size)
         {
-            if(!page.HasValue || !size.HasValue)
+            if (!page.HasValue || !size.HasValue)
             {
                 page = 1;
                 size = 15;
             }
-            return PartialView("_List",_repository.PaginatedList((x => x.ModifiedDate), 
-                page.Value, 
+            return PartialView("_List", _repository.PaginatedList((x => x.ModifiedDate),
+                page.Value,
                 size.Value));
+        }
+
+        public int PageTotal(int rows)
+        {
+            if (rows <= 0) return 0;
+            var count = _repository.GetList().Count;
+            return count % rows > 0 ? (count / rows) + 1 : count / rows;
         }
 
         public ActionResult Create()
