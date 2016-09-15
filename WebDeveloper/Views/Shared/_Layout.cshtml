@@ -1,27 +1,32 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <title>Mi Aplicación HTML5</title>
     <link href="~/Css/Site.css" rel="stylesheet" type="text/css" />    
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
+        <nav class="dropdown">
+            <button class="menu-title">Menu</button>
+            <ul class="dropdown-content">                
                 <li><a href="#">Opción 1</a></li>
                 <li><a href="#">Opción 2</a></li>
                 <li><a href="#">Opción 3</a></li>
             </ul>
         </nav>
-    </header>
-    @RenderBody()        
+    </header>    
     <section>
-        <p>Texto de prueba de parrafo</p>
-        <br />        
-    </section>    
+        @RenderBody()        
+    </section> 
+    <section>
+        <button class="button-base">Botón Base</button>
+        <button class="button-submit">Botón Submit</button>
+        <button class="button-cancel">Botón Cancel</button>
+    </section>   
     <footer>
         &copy; Todos los derechos reservados al autor.
-        <a href="www.google.com">Click aqui</a>
+        <a target="_blank" href="http://www.google.com">Click aqui</a>
     </footer>
 </body>
 </html>

@@ -1,0 +1,46 @@
+﻿.button-base {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: $button-color-white;
+    border: 1px solid $button-color-grey;
+    border-radius: 4px;
+    height: 60px;
+    width: 300px;
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 1.5rem;
+    @include background-color($color: 'black');
+
+    @include break-point(md) {
+        height: 30px;
+        width: 150px;
+        font-size: 1rem;
+
+        &:hover {
+            @include background-color($color: 'black-hover');
+        }
+    }
+}
+
+.button-submit {
+    @extend .button-base;
+    @include background-color($color: 'green');
+
+    @include break-point(md) {
+        &:hover {
+            @include background-color($color: 'green-hover');
+        }
+    }
+}
+
+.button-cancel {
+    @extend .button-base;
+    @include background-color($color: 'red');
+
+    @include break-point(md) {
+        &:hover {
+            @include background-color($color: 'red-hover');
+        }
+    }
+}

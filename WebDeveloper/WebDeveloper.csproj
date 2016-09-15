@@ -217,6 +217,7 @@
     <Content Include="scss\base\_site.scss" />
     <Content Include="scss\helpers\_colors.scss" />
     <Content Include="scss\styles.scss" />
+    <Content Include="scss\helpers\_mixin.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

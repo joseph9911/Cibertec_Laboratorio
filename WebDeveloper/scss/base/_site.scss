@@ -1,15 +1,31 @@
 ﻿body {
-    padding-top: 4rem;
-    padding-bottom: 1.5rem;
-}
+    background-color: $background-color;
 
-footer {
-    background: $site-color-black;
-    color: $site-color-white;
-    height: 100px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
+    header {
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        border-width: 0 0 1px;
+        background-color: $site-color-black;        
+        height: 13%;
+        @include break-point(md){
+            height: 8%;
+        }
+    }
+
+    footer {
+        background: $site-color-black;
+        color: $site-color-white;
+        height: 100px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+
+    section {
+        padding-top: 4rem;
+    }
 }
