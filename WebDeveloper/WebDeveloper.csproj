@@ -17,7 +17,7 @@
     <AssemblyName>WebDeveloper</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -166,7 +166,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,19 +175,13 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Css\site.css" />
-    <Content Include="Css\site.min.css">
-      <DependentUpon>site.css</DependentUpon>
-    </Content>
+    <Content Include="Css\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="compilerconfig.json" />
-    <None Include="compilerconfig.json.defaults">
-      <DependentUpon>compilerconfig.json</DependentUpon>
-    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -216,14 +209,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="scss\styles.scss" />
-    <Content Include="scss\base\_site.scss" />
-    <Content Include="scss\helpers\_colors.scss" />
-    <Content Include="Views\Person\Index.cshtml" />
-    <Content Include="Views\Person\Create.cshtml" />
-    <Content Include="Views\Person\Edit.cshtml" />
-    <Content Include="Views\Person\Delete.cshtml" />
-    <Content Include="Views\Person\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -236,16 +221,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WebDeveloper.Model\WebDeveloper.Model.csproj">
-      <Project>{8a219854-f40b-4e3a-9723-f144a425f135}</Project>
-      <Name>WebDeveloper.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebDeveloper.Repository\WebDeveloper.Repository.csproj">
-      <Project>{91ce4695-5e4d-4b19-994b-177107d75f62}</Project>
-      <Name>WebDeveloper.Repository</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -265,7 +240,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1242</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/WebDeveloper</IISUrl>
+          <IISUrl>http://localhost:1242/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
