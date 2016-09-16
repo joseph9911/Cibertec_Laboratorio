@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebDeveloper.Areas.Personnel.Controllers;
 using WebDeveloper.Model;
+using WebDeveloper.Repository;
 using Xunit;
 
 namespace WebDeveloper.Tests.Controllers
@@ -16,7 +17,7 @@ namespace WebDeveloper.Tests.Controllers
         private PersonController controller;
         public PersonControllerTest()
         {
-            controller = new PersonController();
+            controller = new PersonController(new BaseRepository<Person>());
         }
 
         [Fact(DisplayName = "ListActionEmptyParametersTest")]

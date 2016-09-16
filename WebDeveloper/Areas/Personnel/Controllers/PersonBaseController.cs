@@ -10,9 +10,9 @@ namespace WebDeveloper.Areas.Personnel.Controllers
     public class PersonBaseController<T> : Controller where T: class 
     {
         protected IRepository<T>  _repository;
-        public PersonBaseController()
+        public PersonBaseController(IRepository<T> repository)
         {
-            _repository = new BaseRepository<T>();
+            _repository = repository;
         }
     }
 }

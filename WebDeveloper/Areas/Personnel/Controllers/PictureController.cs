@@ -6,11 +6,15 @@ using System.Web;
 using System.Web.Mvc;
 using WebDeveloper.Areas.Personnel.Models;
 using WebDeveloper.Model;
+using WebDeveloper.Repository;
 
 namespace WebDeveloper.Areas.Personnel.Controllers
 {
     public class PictureController : PersonBaseController<Picture>
     {
+        public PictureController(IRepository<Picture> repository) : base(repository)
+        {
+        }
         public ActionResult FileUpload(int id)
         {
             if (_repository.GetById(x => x.BusinessEntityID == id) != null)

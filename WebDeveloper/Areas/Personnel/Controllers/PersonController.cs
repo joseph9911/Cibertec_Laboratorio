@@ -5,15 +5,18 @@ using System.Net;
 using System.Web.Mvc;
 using WebDeveloper.Areas.Personnel.Models;
 using WebDeveloper.Model;
-
+using WebDeveloper.Repository;
 
 namespace WebDeveloper.Areas.Personnel.Controllers
 {
     public class PersonController : PersonBaseController<Person>
     {
+        public PersonController(IRepository<Person> repository) : base(repository)
+        {
+        }
         public ActionResult Index()
         {
-            return View(_repository.PaginatedList((x => x.ModifiedDate), 1, 15));
+            return View();
         }
 
         public ActionResult List(int? page, int? size)

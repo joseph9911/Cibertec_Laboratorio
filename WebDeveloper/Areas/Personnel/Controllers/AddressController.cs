@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Web.Mvc;
 using WebDeveloper.Model;
+using WebDeveloper.Repository;
 
 namespace WebDeveloper.Areas.Personnel.Controllers
 {
     public class AddressController : PersonBaseController<Address>
     {
+        public AddressController(IRepository<Address> repository): base(repository)
+        {
+        }
         public ActionResult Index()
         {
             return View(_repository.PaginatedList((x=>x.ModifiedDate),2,30));
