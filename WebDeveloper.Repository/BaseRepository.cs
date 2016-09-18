@@ -19,7 +19,6 @@ namespace WebDeveloper.Repository
         }
         public int Add(T entity)
         {
-            //db.Entry(entity).State = EntityState.Added;
             db.Set<T>().Add(entity);
             return db.SaveChanges();
         }

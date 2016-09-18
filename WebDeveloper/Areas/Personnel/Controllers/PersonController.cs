@@ -24,7 +24,7 @@ namespace WebDeveloper.Areas.Personnel.Controllers
             if (!page.HasValue || !size.HasValue)
             {
                 page = 1;
-                size = 10;
+                size = 15;
             }
             return PartialView("_List", _repository.PaginatedList((x => x.ModifiedDate), page.Value, size.Value));
         }
@@ -33,9 +33,9 @@ namespace WebDeveloper.Areas.Personnel.Controllers
         {
             var model = new PersonViewModel
             {
-                Person= new Person(),
-                PersonTypeList=PersonType("SC"),
-                EmailPromotionList= EmailPromotion("0")
+                Person = new Person(),
+                PersonTypeList = PersonType("SC"),
+                EmailPromotionList = EmailPromotion("0")
             };
             return PartialView("_Create", model);
         }
@@ -43,7 +43,16 @@ namespace WebDeveloper.Areas.Personnel.Controllers
         [HttpPost]
         public ActionResult Create(Person person)
         {
-            if (!ModelState.IsValid) return PartialView("_Create", person);
+            if (!ModelState.IsValid)
+            {
+                var model = new PersonViewModel
+                {
+                    Person = person,
+                    PersonTypeList = PersonType(person.PersonType ?? "SC"),
+                    EmailPromotionList = EmailPromotion(person.EmailPromotion.ToString() ?? "0")
+                };
+                return PartialView("_Create", model);
+            }
             person.rowguid = Guid.NewGuid();
             person.ModifiedDate = DateTime.Now;
             person.BusinessEntity = new BusinessEntity
@@ -59,8 +68,8 @@ namespace WebDeveloper.Areas.Personnel.Controllers
         {
             var model = new PersonViewModel
             {
-                Person = _repository.GetById(x => x.BusinessEntityID == id),                
-            };            
+                Person = _repository.GetById(x => x.BusinessEntityID == id),
+            };
             if (model.Person == null) return RedirectToAction("Index");
             model.PersonTypeList = PersonType(model.Person.PersonType);
             model.EmailPromotionList = EmailPromotion(model.Person.EmailPromotion.ToString());
@@ -119,13 +128,13 @@ namespace WebDeveloper.Areas.Personnel.Controllers
         }
 
         private IEnumerable<SelectListItem> EmailPromotion(string selected)
-        {            
+        {
             var list = new[]
                 {
                     new SelectListItem {Value="0",Text= "No promotions.", Selected=false},
                     new SelectListItem {Value="1",Text= "Promotion Email", Selected=false },
                     new SelectListItem {Value="2",Text= "Promotion Email and Partner Email" , Selected=false}
-                    
+
                 };
             list.FirstOrDefault(x => x.Value == selected).Selected = true;
             return list;

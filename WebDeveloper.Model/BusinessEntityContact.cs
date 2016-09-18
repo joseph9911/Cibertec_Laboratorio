@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WebDeveloper.Model
 {    
 
     [Table("Person.BusinessEntityContact")]
+    [ExcludeFromCodeCoverage]
     public partial class BusinessEntityContact
     {
         [Key]

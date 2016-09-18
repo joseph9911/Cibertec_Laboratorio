@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using WebDeveloper.Model;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WebDeveloper.Repository
 {
+    [ExcludeFromCodeCoverage]
     public class WebContextDb : DbContext
     {
         public WebContextDb(): base("WebDeveloper")
