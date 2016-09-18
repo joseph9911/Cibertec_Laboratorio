@@ -5,12 +5,17 @@ using System.Net;
 using System.Web.Mvc;
 using WebDeveloper.Areas.Personnel.Models;
 using WebDeveloper.Model;
-
+using WebDeveloper.Repository;
 
 namespace WebDeveloper.Areas.Personnel.Controllers
 {
     public class PersonController : PersonBaseController<Person>
     {
+        public PersonController(IRepository<Person> repository) : base(repository)
+        {
+
+        }
+
         public ActionResult Index()
         {
             return View(_repository.PaginatedList((x => x.ModifiedDate), 1, 15));
@@ -67,7 +72,18 @@ namespace WebDeveloper.Areas.Personnel.Controllers
         [HttpPost]
         public ActionResult Edit(Person person)
         {
-            if (!ModelState.IsValid) return PartialView("_Edit", person);
+            if (!ModelState.IsValid)
+            {
+                var model = new PersonViewModel
+                {                    
+                    Person = person,
+                    EmailPromotionList = EmailPromotion(person.EmailPromotion.ToString()),
+                    PersonTypeList = PersonType(person.PersonType)
+                };
+                return PartialView("_Edit", model);
+                
+            }
+
             _repository.Update(person);
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }

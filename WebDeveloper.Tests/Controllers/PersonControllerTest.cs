@@ -7,6 +7,7 @@ using System.Collections;
 using WebDeveloper.Model;
 using System.Collections.Generic;
 using System.Linq;
+using WebDeveloper.Repository;
 
 namespace WebDeveloper.Tests.Controllers
 {
@@ -15,7 +16,7 @@ namespace WebDeveloper.Tests.Controllers
         private PersonController controller;
         public PersonControllerTest()
         {
-            controller = new PersonController();
+            controller = new PersonController(new BaseRepository<Person>());
         }
 
         [Fact(DisplayName = "ListActionWithEmptyParameters")]

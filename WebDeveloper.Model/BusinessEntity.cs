@@ -16,6 +16,8 @@ namespace WebDeveloper.Model
             BusinessEntityContact = new HashSet<BusinessEntityContact>();
         }
 
+        [Key, ForeignKey("Person")]
+
         public int BusinessEntityID { get; set; }
 
         public Guid rowguid { get; set; }
