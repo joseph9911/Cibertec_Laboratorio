@@ -55,12 +55,11 @@ namespace WebDeveloper.Repository
             modelBuilder.Entity<BusinessEntity>()
                 .HasMany(e => e.BusinessEntityContact)
                 .WithRequired(e => e.BusinessEntity)
-                .WillCascadeOnDelete(true);
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<BusinessEntity>()
                 .HasOptional(e => e.Person)
-                .WithRequired(e => e.BusinessEntity)
-                .WillCascadeOnDelete(true);
+                .WithRequired(e => e.BusinessEntity);
 
             modelBuilder.Entity<ContactType>()
                 .HasMany(e => e.BusinessEntityContact)
@@ -102,12 +101,16 @@ namespace WebDeveloper.Repository
             modelBuilder.Entity<Person>()
                 .HasMany(e => e.PersonPhone)
                 .WithRequired(e => e.Person)
-                .WillCascadeOnDelete(true);
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PhoneNumberType>()
                 .HasMany(e => e.PersonPhone)
                 .WithRequired(e => e.PhoneNumberType)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Picture>()
+                .Property(e => e.ImagePath)
+                .IsUnicode(false);
 
             modelBuilder.Entity<StateProvince>()
                 .Property(e => e.StateProvinceCode)
