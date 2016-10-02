@@ -14,6 +14,12 @@
             templateUrl: "app/home.html"
         })
 
+        .state("login",
+        {
+            url: "/login",
+            templateUrl: "app/public/login/login.html"
+        })
+
         .state("person",
         {
             url: "/person",
