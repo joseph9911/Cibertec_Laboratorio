@@ -16,7 +16,9 @@ namespace WebDeveloper.Angular.App_Start
 
             bundles.Add(new ScriptBundle("~/bundles/app")
                 .Include("~/app/app.js")
-                .Include("~/app/app.routes.js"));
+                .Include("~/app/app.routes.js")
+                .IncludeDirectory("~/app/shared", "*.js", true)
+                .IncludeDirectory("~/app/private", "*.js", true));
 
 
             bundles.Add(new StyleBundle("~/bundles/css")
@@ -30,7 +32,7 @@ namespace WebDeveloper.Angular.App_Start
                 new DynamicFolderBundle("css", "*.css", false, new CssMinify())
                 );
 
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
 
 
 

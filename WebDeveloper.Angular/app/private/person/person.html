@@ -1,0 +1,15 @@
+﻿<div ng-controller="personController as vm">
+    <h1>{{vm.title}}</h1>
+    <div ng-repeat="person in vm.personList">
+        <label>Person ID:</label> {{person.BusinessEntityID}}
+    </div>
+   
+    <person-card ng-repeat="person in vm.personList"
+                 person-id="{{person.businessEntityID}}"
+                 first-name="{{person.firstName}}"
+                 last-name="{{person.lastName}}"
+                 modified-date="{{person.modifiedDate}}">
+    </person-card>
+
+
+</div>
